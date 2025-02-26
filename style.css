@@ -7,6 +7,11 @@
   box-sizing: border-box;
 }
 
+body,
+html {
+  overflow: hidden;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -126,4 +131,33 @@ header .column span {
   text-align: center;
   width: 100%;
   font-size: 1.13rem;
+}
+
+@media (max-width: 852px) {
+  .piano {
+    width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .piano {
+    transform: rotate(270deg);
+  }
+}
+
+@media (max-width: 424px) {
+  .piano {
+    padding: 0;
+    background-color: transparent;
+    width: 550px;
+    height: 330px;
+  }
+  .piano-keys {
+    background-color: #222;
+    padding: 10px;
+    border-radius: 20px;
+  }
+  .c {
+    color: #222;
+  }
 }
