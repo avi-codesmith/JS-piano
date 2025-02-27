@@ -67,6 +67,10 @@ header .column span {
   cursor: pointer;
 }
 
+.hidden {
+  display: flex !important;
+}
+
 .keys-checkbox input::before {
   transition: all 0.3s ease;
   content: "";
@@ -137,11 +141,26 @@ header .column span {
   .piano {
     width: 700px;
   }
+
+  .hidden {
+    display: none !important;
+  }
+
+  header {
+    justify-content: space-between;
+  }
+  li span {
+    color: transparent;
+  }
 }
 
 @media (max-width: 768px) {
   .piano {
     transform: rotate(270deg);
+  }
+
+  .piano-keys {
+    margin-top: 20px;
   }
 }
 
@@ -150,7 +169,7 @@ header .column span {
     padding: 0;
     background-color: transparent;
     width: 550px;
-    height: 330px;
+    height: 313px;
   }
   .piano-keys {
     background-color: #222;
