@@ -1,8 +1,16 @@
 "use strict";
 
 const pianoKeys = document.querySelectorAll(".piano-keys .key");
+const btn = document.querySelector(".btn");
+const spanElements = document.querySelectorAll("li span");
 
 let audio = new Audio("tunes/a.wav");
+let isCleared = false;
+let originalContent = [];
+
+spanElements.forEach((span, index) => {
+  originalContent[index] = span.innerHTML;
+});
 
 const playTune = (key) => {
   audio.src = `tunes/${key}.wav`;
@@ -25,3 +33,11 @@ const pressedKey = (e) => {
 };
 
 document.addEventListener("keydown", pressedKey);
+
+btn.addEventListener("click", () => {
+  spanElements.forEach((span, index) => {
+    span.innerHTML = isCleared ? originalContent[index] : "";
+  });
+
+  isCleared = !isCleared;
+});

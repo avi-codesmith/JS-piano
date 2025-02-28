@@ -7,10 +7,6 @@
   box-sizing: border-box;
 }
 
-*:focus-visible {
-  outline: none; /* Removes only for mouse users */
-}
-
 body,
 html {
   overflow: hidden;
@@ -175,6 +171,11 @@ header .column span {
     width: 550px;
     height: 313px;
   }
+
+  .volume-slider input {
+    accent-color: #333;
+  }
+
   .piano-keys {
     background-color: #222;
     padding: 10px;
