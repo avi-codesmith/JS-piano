@@ -183,13 +183,8 @@ header .column span {
   }
 
   .moon {
-    /* position: absolute; */
-    /* top: 15px; */
-    left: 15px;
-    transform: rotate(162deg);
-    background: white;
-    border-radius: 50%;
-    padding: 4px;
+    display: none;
+    visibility: hidden;
   }
 }
 
@@ -203,6 +198,10 @@ header .column span {
 
   .volume-slider input {
     accent-color: #333;
+  }
+
+  .container {
+    background-color: #ddd;
   }
 
   .piano-keys {
