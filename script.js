@@ -6,12 +6,14 @@ const btn = document.querySelector(".keys-checkbox input");
 const container = document.querySelector(".container");
 const moon = document.querySelector(".moon");
 
+let allKeys = [];
 let audio = new Audio("tunes/a.wav");
 let clickSound = new Audio("soundClick.mp3");
 
 const playTune = (key) => {
   audio.src = `tunes/${key}.wav`;
   audio.play();
+
   const clickedKey = document.querySelector(`[data-key="${key}"]`);
   clickedKey.classList.add("active");
   setTimeout(() => {
@@ -20,13 +22,14 @@ const playTune = (key) => {
 };
 
 pianoKeys.forEach((key) => {
-  key.addEventListener("click", () => {
-    playTune(key.dataset.key);
-  });
+  allKeys.push(key.dataset.key);
+  playTune(key.dataset.key);
 });
 
 const pressedKey = (e) => {
-  playTune(e.key);
+  if (allKeys.includes(e.key)) {
+    playTune(e.key);
+  }
 };
 
 const handleVolume = (e) => {
