@@ -13,11 +13,11 @@
           <h2 class="c">JS PIANO</h2>
           <div class="column volume-slider">
             <span class="c">Volume</span>
-            <input type="range" />
+            <input type="range" min="0" max="1" value="0.5" step="any" />
           </div>
           <div class="column keys-checkbox hidden">
             <span class="c">Show Keys</span>
-            <input class="btn" type="checkbox" checked />
+            <input type="checkbox" checked />
           </div>
         </header>
         <ul class="piano-keys">
@@ -40,6 +40,21 @@
           <li class="key white" data-key=";"><span>;</span></li>
         </ul>
       </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="moon"
+        title="sdds"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+        />
+      </svg>
     </div>
   </body>
   <script src="script.js" defer></script>

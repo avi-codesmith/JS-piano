@@ -17,7 +17,26 @@ html {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #111;
+  position: relative;
+}
+
+.backColor {
   background-color: #ddd;
+}
+
+.moon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  height: 2.6rem;
+  width: 2.6rem;
+  stroke: #fff;
+  cursor: pointer;
+}
+
+.stroke {
+  stroke: #111;
 }
 
 .piano {
@@ -162,6 +181,16 @@ header .column span {
   .piano-keys {
     margin-top: 20px;
   }
+
+  .moon {
+    /* position: absolute; */
+    /* top: 15px; */
+    left: 15px;
+    transform: rotate(162deg);
+    background: white;
+    border-radius: 50%;
+    padding: 4px;
+  }
 }
 
 @media (max-width: 424px) {
@@ -184,4 +213,8 @@ header .column span {
   .c {
     color: #222;
   }
+}
+
+.hide {
+  color: transparent !important;
 }

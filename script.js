@@ -1,16 +1,13 @@
 "use strict";
 
 const pianoKeys = document.querySelectorAll(".piano-keys .key");
-const btn = document.querySelector(".btn");
-const spanElements = document.querySelectorAll("li span");
+const volume = document.querySelector(".volume-slider input");
+const btn = document.querySelector(".keys-checkbox input");
+const container = document.querySelector(".container");
+const moon = document.querySelector(".moon");
 
 let audio = new Audio("tunes/a.wav");
-let isCleared = false;
-let originalContent = [];
-
-spanElements.forEach((span, index) => {
-  originalContent[index] = span.innerHTML;
-});
+let clickSound = new Audio("soundClick.mp3");
 
 const playTune = (key) => {
   audio.src = `tunes/${key}.wav`;
@@ -32,12 +29,23 @@ const pressedKey = (e) => {
   playTune(e.key);
 };
 
-document.addEventListener("keydown", pressedKey);
+const handleVolume = (e) => {
+  audio.volume = e.target.value;
+};
 
-btn.addEventListener("click", () => {
-  spanElements.forEach((span, index) => {
-    span.innerHTML = isCleared ? originalContent[index] : "";
+const hideShowBtn = () => {
+  pianoKeys.forEach((key) => {
+    key.classList.toggle("hide");
+    clickSound.play();
   });
+};
 
-  isCleared = !isCleared;
-});
+const changeTheme = () => {
+  container.classList.toggle("backColor");
+  moon.classList.toggle("stroke");
+};
+
+document.addEventListener("keydown", pressedKey);
+volume.addEventListener("input", handleVolume);
+btn.addEventListener("click", hideShowBtn);
+moon.addEventListener("click", changeTheme);
