@@ -22,6 +22,13 @@ const playTune = (key) => {
 };
 
 pianoKeys.forEach((key) => {
+  key.addEventListener("click", () => {
+    allKeys.push(key.dataset.key);
+    playTune(key.dataset.key);
+  });
+});
+
+pianoKeys.forEach((key) => {
   allKeys.push(key.dataset.key);
   playTune(key.dataset.key);
 });
