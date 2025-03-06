@@ -6,13 +6,19 @@ const btn = document.querySelector(".keys-checkbox input");
 const container = document.querySelector(".container");
 const moon = document.querySelector(".moon");
 
-let allKeys = [];
-let audio = new Audio("a.wav");
+let audioMap = {};
 let clickSound = new Audio("soundClick.mp3");
 
+pianoKeys.forEach((key) => {
+  let note = key.dataset.key;
+  audioMap[note] = new Audio(`${note}.wav`);
+});
+
 const playTune = (key) => {
-  audio.src = `${key}.wav`;
-  audio.play();
+  if (audioMap[key]) {
+    audioMap[key].currentTime = 0;
+    audioMap[key].play();
+  }
 
   const clickedKey = document.querySelector(`[data-key="${key}"]`);
   clickedKey.classList.add("active");
@@ -22,32 +28,24 @@ const playTune = (key) => {
 };
 
 pianoKeys.forEach((key) => {
-  key.addEventListener("click", () => {
-    allKeys.push(key.dataset.key);
-    playTune(key.dataset.key);
-  });
-});
-
-pianoKeys.forEach((key) => {
-  allKeys.push(key.dataset.key);
-  playTune(key.dataset.key);
+  key.addEventListener("click", () => playTune(key.dataset.key));
 });
 
 const pressedKey = (e) => {
-  if (allKeys.includes(e.key)) {
+  if (audioMap[e.key]) {
     playTune(e.key);
   }
 };
 
 const handleVolume = (e) => {
-  audio.volume = e.target.value;
+  for (let key in audioMap) {
+    audioMap[key].volume = e.target.value;
+  }
 };
 
 const hideShowBtn = () => {
-  pianoKeys.forEach((key) => {
-    key.classList.toggle("hide");
-    clickSound.play();
-  });
+  pianoKeys.forEach((key) => key.classList.toggle("hide"));
+  clickSound.play();
 };
 
 const changeTheme = () => {
