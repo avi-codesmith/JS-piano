@@ -86,10 +86,6 @@ header .column span {
   cursor: pointer;
 }
 
-.hidden {
-  display: flex !important;
-}
-
 .keys-checkbox input::before {
   transition: all 0.3s ease;
   content: "";
@@ -161,15 +157,8 @@ header .column span {
     width: 700px;
   }
 
-  .hidden {
-    display: none !important;
-  }
-
   header {
     justify-content: space-between;
-  }
-  li span {
-    color: transparent;
   }
 }
 
@@ -198,6 +187,10 @@ header .column span {
 
   .volume-slider input {
     accent-color: #333;
+  }
+
+  .keys-checkbox input {
+    background-color: #333;
   }
 
   .container {
