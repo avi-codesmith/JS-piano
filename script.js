@@ -7,11 +7,11 @@ const container = document.querySelector(".container");
 const moon = document.querySelector(".moon");
 
 let allKeys = [];
-let audio = new Audio("tunes/a.wav");
+let audio = new Audio("a.wav");
 let clickSound = new Audio("soundClick.mp3");
 
 const playTune = (key) => {
-  audio.src = `tunes/${key}.wav`;
+  audio.src = `${key}.wav`;
   audio.play();
 
   const clickedKey = document.querySelector(`[data-key="${key}"]`);
