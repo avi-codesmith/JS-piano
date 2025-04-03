@@ -8,6 +8,7 @@ const moon = document.querySelector(".moon");
 
 let audioMap = {};
 let clickSound = new Audio("soundClick.mp3");
+let pressedKeys = new Set();
 
 pianoKeys.forEach((key) => {
   let note = key.dataset.key;
@@ -32,9 +33,14 @@ pianoKeys.forEach((key) => {
 });
 
 const pressedKey = (e) => {
-  if (audioMap[e.key]) {
+  if (!pressedKeys.has(e.key) && audioMap[e.key]) {
     playTune(e.key);
+    pressedKeys.add(e.key);
   }
+};
+
+const releasedKey = (e) => {
+  pressedKeys.delete(e.key);
 };
 
 const handleVolume = (e) => {
@@ -54,6 +60,7 @@ const changeTheme = () => {
 };
 
 document.addEventListener("keydown", pressedKey);
+document.addEventListener("keyup", releasedKey);
 volume.addEventListener("input", handleVolume);
 btn.addEventListener("click", hideShowBtn);
 moon.addEventListener("click", changeTheme);

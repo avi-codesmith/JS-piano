@@ -52,8 +52,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  color: #bbbbbb;
+  color: #bbb;
 }
 
 header h2 {
@@ -71,8 +70,8 @@ header .column span {
   margin-right: 15px;
 }
 
-.volume-slider input {
-  accent-color: #fff;
+.volume-slider input,
+.keys-checkbox input {
   cursor: pointer;
 }
 
@@ -83,7 +82,6 @@ header .column span {
   background-color: #4b4b4b;
   border-radius: 20px;
   position: relative;
-  cursor: pointer;
 }
 
 .keys-checkbox input::before {
@@ -98,7 +96,7 @@ header .column span {
   border-radius: 50%;
 }
 
-.keys-checkbox input:checked:before {
+.keys-checkbox input:checked::before {
   background-color: #fff;
   left: 32px;
 }
@@ -109,8 +107,8 @@ header .column span {
 }
 
 .piano-keys .key {
-  list-style-type: none;
-  color: #bbbbbb;
+  list-style: none;
+  color: #bbb;
   text-transform: uppercase;
   position: relative;
   user-select: none;
@@ -120,7 +118,7 @@ header .column span {
 .piano-keys .black {
   height: 140px;
   width: 44px;
-  margin: 0 -22px 0 -22px;
+  margin: 0 -22px;
   background: linear-gradient(#333, #000);
   border-radius: 0 0 5px 5px;
   z-index: 9;
@@ -140,25 +138,21 @@ header .column span {
 }
 
 .piano-keys .white.active {
-  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  background: linear-gradient(to bottom, #fff, #eee);
   box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 .piano-keys span {
   position: absolute;
   bottom: 20px;
-  text-align: center;
   width: 100%;
   font-size: 1.13rem;
+  text-align: center;
 }
 
 @media (max-width: 852px) {
   .piano {
     width: 700px;
-  }
-
-  header {
-    justify-content: space-between;
   }
 }
 
@@ -167,13 +161,8 @@ header .column span {
     transform: rotate(270deg);
   }
 
-  .piano-keys {
-    margin-top: 20px;
-  }
-
   .moon {
     display: none;
-    visibility: hidden;
   }
 }
 
@@ -185,14 +174,6 @@ header .column span {
     height: 313px;
   }
 
-  .volume-slider input {
-    accent-color: #333;
-  }
-
-  .keys-checkbox input {
-    background-color: #333;
-  }
-
   .container {
     background-color: #ddd;
   }
@@ -202,8 +183,14 @@ header .column span {
     padding: 10px;
     border-radius: 20px;
   }
-  .c {
-    color: #222;
+
+  h2,
+  span {
+    color: #333;
+  }
+
+  li span {
+    color: #bbbbbb;
   }
 }
 
