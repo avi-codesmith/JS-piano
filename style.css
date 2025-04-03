@@ -5,6 +5,7 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
+  user-select: none;
 }
 
 body,
@@ -28,15 +29,16 @@ html {
 .moon {
   position: absolute;
   top: 15px;
-  right: 15px;
-  height: 2.6rem;
-  width: 2.6rem;
-  stroke: #fff;
+  right: 25px;
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: #fff;
   cursor: pointer;
+  rotate: 48deg;
 }
 
 .stroke {
-  stroke: #111;
+  color: #111;
 }
 
 .piano {
@@ -111,7 +113,6 @@ header .column span {
   color: #bbb;
   text-transform: uppercase;
   position: relative;
-  user-select: none;
   cursor: pointer;
 }
 
